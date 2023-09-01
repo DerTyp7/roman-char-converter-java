@@ -29,7 +29,6 @@ public class RomanCharConverter {
                 }
             }
 
-
             result += this.romanToArabic.get(romanChar);
 
         }
