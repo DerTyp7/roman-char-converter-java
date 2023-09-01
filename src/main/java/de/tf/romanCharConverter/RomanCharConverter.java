@@ -1,4 +1,4 @@
-package com.tf.romanCharConverter;
+package de.tf.romanCharConverter;
 
 import java.util.HashMap;
 
@@ -28,6 +28,7 @@ public class RomanCharConverter {
                     continue;
                 }
             }
+
 
             result += this.romanToArabic.get(romanChar);
 

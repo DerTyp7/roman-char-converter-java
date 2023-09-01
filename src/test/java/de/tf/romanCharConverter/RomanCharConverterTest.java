@@ -1,4 +1,4 @@
-package com.tf.romanCharConverter;
+package de.tf.romanCharConverter;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -39,7 +39,7 @@ public class RomanCharConverterTest {
     }
 
     @Test
-    public void givenMultipleRomanSubstractChar_whenConvert_thenArabic(){
+    public void givenMultipleRomanSubtractChar_whenConvert_thenArabic(){
         assertEquals(4, converter.convert("IV"));
         assertEquals(9, converter.convert("IX"));
         assertEquals(40, converter.convert("XL"));
