@@ -2,6 +2,8 @@ package de.tf.romanCharConverter;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -11,6 +13,55 @@ public class RomanCharConverterTest {
     @BeforeEach
     public void setUp() {
         converter = new RomanCharConverter();
+    }
+
+    @ParameterizedTest(name = "romanString = {0}, result = {1}")
+    @CsvSource({
+            "I, 1",
+            "V, 5",
+            "X, 10",
+            "L, 50",
+            "C, 100",
+            "D, 500",
+            "M, 1000",
+            "A, 5000"})
+    public void testConvertOneSingleRomanNumber(String romanString, int result) {
+        assertEquals(result, converter.convert(romanString));
+    }
+
+    @ParameterizedTest(name = "romanString = {0}, result = {1}")
+    @CsvSource({
+            "II, 2",
+            "XX, 20",
+            "CC, 200",
+            "MM, 2000",
+            "AA, 10000"})
+    public void testConvertMultipleRomanNumber(String romanString, int result) {
+        assertEquals(result, converter.convert(romanString));
+    }
+
+    @ParameterizedTest(name = "romanString = {0}, result = {1}")
+    @CsvSource({
+            "III, 3",
+            "XXX, 30",
+            "CCC, 300",
+            "MMM, 3000",
+            "MD, 1500"})
+    public void testConvertMultipleRomanNumberSameChar(String romanString, int result) {
+        assertEquals(result, converter.convert(romanString));
+    }
+
+    @ParameterizedTest(name = "romanString = {0}, result = {1}")
+    @CsvSource({
+            "IV, 4",
+            "IX, 9",
+            "XL, 40",
+            "XC, 90",
+            "CD, 400",
+            "CM, 900",
+            "XIV, 14"})
+    public void testConvertMultipleRomanNumberSubtractChar(String romanString, int result) {
+        assertEquals(result, converter.convert(romanString));
     }
 
     @Test
